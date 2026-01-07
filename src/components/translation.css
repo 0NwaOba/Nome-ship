@@ -1,0 +1,164 @@
+/* Prevent body scroll when popup is open */
+body.popup-open {
+  overflow: hidden;
+}
+
+/* Overlay that dims the background and centers the popup */
+.language-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(92, 157, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2147483647;
+  backdrop-filter: blur(4px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Main popup container */
+.language-popup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.5s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+  text-align: center;
+}
+
+/* Popup header spacing */
+.language-popup-container h3 {
+  margin-bottom: 20px;
+}
+
+/* Button wrapper */
+.language-popup-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+/* "Select Language" button */
+.select-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  background: #5c9dff;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.select-button:hover {
+  background: #4a8cff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(92, 157, 255, 0.3);
+}
+
+/* Language options list */
+.language-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Individual language buttons */
+.language-option {
+  padding: 12px;
+  border: 1px solid #5c9dff;
+  border-radius: 10px;
+  background: white;
+  color: #0d1117;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.language-option:hover {
+  background: #f0f7ff;
+  border-color: #5c9dff;
+  transform: translateY(-1px);
+}
+
+/* Fade animation for popup */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Translation loading bar */
+body.translating::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #5c9dff, #6a7bff);
+  z-index: 2147483647;
+  animation: translating 2s infinite;
+}
+
+@keyframes translating {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Optional: prevent layout shift when scrollbar appears */
+html {
+  overflow-y: scroll;
+}
+
+/* Full-screen overlay for "Translating..." message */
+.global-translating-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(92, 157, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2147483647;
+  backdrop-filter: blur(4px);
+}
+
+/* Translating message box */
+.translating-message {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #5c9dff;
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  max-width: 90%;
+  transform: translateY(-10%);
+}
+
+/* Class for marking elements as excluded from translation */
+.no-translate {
+  /* Define styles or just mark for logic use */
+  }
