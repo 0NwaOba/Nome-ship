@@ -28,7 +28,7 @@ const Header = ({ isAdmin }) => {
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         <Link to="/" className="logo">
-  <span className="color-1 no-translate">Ajet</span>
+  <span className="color-1 no-translate">Nome</span>
   <span className="color-2 no-translate">Ship</span>
 </Link>
 
@@ -68,3 +68,4 @@ const Header = ({ isAdmin }) => {
 };
 
 export default Header;
+
